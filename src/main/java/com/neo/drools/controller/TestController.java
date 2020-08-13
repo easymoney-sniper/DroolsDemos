@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
 
 
 @RequestMapping("/test")
@@ -25,6 +24,7 @@ public class TestController {
         address.setPostcode("12345");
 
         AddressCheckResult result = new AddressCheckResult();
+        //insert into Working Memory
         kieSession.insert(address);
         kieSession.insert(result);
         int ruleFiredCount = kieSession.fireAllRules();
